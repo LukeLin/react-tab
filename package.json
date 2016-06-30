@@ -1,0 +1,39 @@
+{
+  "name": "react-tab",
+  "version": "1.0.0",
+  "description": "react tabs component",
+  "main": "index.js",
+  "scripts": {
+    "build": "set NODE_ENV=production&&webpack --progress --colors",
+    "build:dev": "set NODE_ENV=development&&webpack --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukeLin/react-tab.git"
+  },
+  "keywords": [
+    "react",
+    "tab",
+    "tabs"
+  ],
+  "author": "LukeLin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukeLin/react-tab/issues"
+  },
+  "homepage": "https://github.com/LukeLin/react-tab#readme",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-runtime": "^6.9.2",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}

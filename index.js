@@ -38,9 +38,9 @@ export default class Tabs extends Component {
         }
 
         React.Children.forEach(children, (child) => {
-            if(child.props && child.props.to) {
+            if(child.props && child.props.label) {
                 if(this.firstLink == null){
-                    this.firstLink = child.props.to;
+                    this.firstLink = child.props.label;
                     return;
                 }
             }
@@ -80,7 +80,7 @@ const defaultActiveStyle = {
     fontWeight: 'bold'
 };
 
-export class TabLink extends Base {
+export class TabTitle extends Component {
     constructor(props, context){
         super(props, context);
 
@@ -88,18 +88,18 @@ export class TabLink extends Base {
     }
 
     onSelect(){
-        this.context.onSelect(this.props.to);
+        this.context.onSelect(this.props.label);
     }
 
     componentDidMount() {
-        if (this.context.selectedTab === this.props.to || this.context.firstLink === this.props.to) {
-            this.context.onSelect(this.props.to);
+        if (this.context.selectedTab === this.props.label || this.context.firstLink === this.props.label) {
+            this.context.onSelect(this.props.label);
         }
     }
 
     render() {
         let style = null;
-        let isActive = this.context.selectedTab === this.props.to;
+        let isActive = this.context.selectedTab === this.props.label;
         if (isActive) {
             style = this.context.activeStyle;
         }
@@ -115,17 +115,17 @@ export class TabLink extends Base {
         );
     }
 }
-TabLink.defaultProps = {
-    to: '',
+TabTitle.defaultProps = {
+    label: '',
     className: 'tab-link',
     // default: false
 };
-TabLink.propTypes = {
-    to: PropTypes.string.isRequired,
+TabTitle.propTypes = {
+    label: PropTypes.string.isRequired,
     className: PropTypes.string,
     default: PropTypes.bool
 };
-TabLink.contextTypes = {
+TabTitle.contextTypes = {
     onSelect: PropTypes.func,
     firstLink: PropTypes.string,
     activeStyle: PropTypes.object,
@@ -141,7 +141,7 @@ const styles = {
     }
 };
 
-export class TabContent extends Base {
+export class TabPanel extends Component {
     constructor(props, context){
         super(props, context);
     }
@@ -159,14 +159,14 @@ export class TabContent extends Base {
         );
     }
 }
-TabContent.defaultProps = {
+TabPanel.defaultProps = {
     for: '',
     className: 'tab-content'
 };
-TabContent.propTypes = {
+TabPanel.propTypes = {
     for: PropTypes.string.isRequired,
     className: PropTypes.string
 };
-TabContent.contextTypes = {
+TabPanel.contextTypes = {
     selectedTab: PropTypes.string
 };
