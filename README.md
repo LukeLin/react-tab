@@ -25,14 +25,14 @@ import Tabs, { TabLink, TabContent } from '../../components/common/Tab';
 
 ### composite usage
 ``` xml
-<Tabs onSelect={ this.onSelect } defaultSelectedTab="2" activeLinkStyle={ { color: 'red' } }>
+<Tabs onSelect={ this.onSelect } activeLinkStyle={ { color: 'red' } }>
     <div>
         <TabLink to="1">
             tab1
         </TabLink>
     </div>
     <div>
-        <TabLink to="2">
+        <TabLink to="2" default>
             tab2
         </TabLink>
     </div>

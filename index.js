@@ -14,7 +14,7 @@ export default class Tabs extends Component {
     getChildContext(){
         return {
             onSelect: this.onSelect.bind(this),
-            selectedTab: this.state.selectedTab || this.props.defaultSelectedTab,
+            selectedTab: this.state.selectedTab,
             activeStyle: this.props.activeLinkStyle || defaultActiveStyle,
             firstLink: this.firstLink
         };
@@ -54,19 +54,17 @@ export default class Tabs extends Component {
 
         return (
             <div {...this.props}>
-        {this.props.children}
-    </div>
-    );
+                {this.props.children}
+            </div>
+        );
     }
 }
 Tabs.defaultProps = {
     onSelect: null,
-    defaultSelectedTab: '',
     activeLinkStyle: null
 };
 Tabs.propTypes = {
     onSelect: PropTypes.func,
-    defaultSelectedTab: PropTypes.string,
     activeLinkStyle: PropTypes.object
 };
 Tabs.childContextTypes = {
@@ -92,7 +90,7 @@ export class TabLink extends Base {
     }
 
     componentDidMount() {
-        if (this.context.firstLink === this.props.to || this.props.default) {
+        if (this.context.firstLink === this.props.to || this.props.hasOwnProperty('default')) {
             this.context.onSelect(this.props.to);
         }
     }
@@ -106,19 +104,19 @@ export class TabLink extends Base {
 
         return (
             <div
-        className={ this.props.className + (isActive ? ' active' : '') }
-        style={style}
-        onClick={ this.onSelect }
-    >
-        {this.props.children}
-    </div>
-    );
+                className={ this.props.className + (isActive ? ' active' : '') }
+                style={style}
+                onClick={ this.onSelect }
+            >
+                {this.props.children}
+            </div>
+        );
     }
 }
 TabLink.defaultProps = {
     to: '',
     className: 'tab-link',
-    default: false
+    // default: false
 };
 TabLink.propTypes = {
     to: PropTypes.string.isRequired,
@@ -151,12 +149,12 @@ export class TabContent extends Base {
 
         return (
             <div
-        className={ this.props.className }
-        style={ displayStyle }
+                className={ this.props.className }
+                style={ displayStyle }
             >
-            {this.props.children}
-    </div>
-    );
+                {this.props.children}
+            </div>
+        );
     }
 }
 TabContent.defaultProps = {
