@@ -3,7 +3,7 @@ react tab component
 
 ## Usage
 ``` javascript
-import Tabs, { TabLink, TabContent } from '../../components/common/Tab';
+import Tab, { TabTitle, TabPanel } from './index';
 ```
 
 ```` xml
