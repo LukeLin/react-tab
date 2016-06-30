@@ -14,7 +14,7 @@ export default class Tabs extends Component {
     getChildContext(){
         return {
             onSelect: this.onSelect.bind(this),
-            selectedTab: this.state.selectedTab,
+            selectedTab: this.state.selectedTab || this.props.defaultSelectedTab,
             activeStyle: this.props.activeLinkStyle || defaultActiveStyle,
             firstLink: this.firstLink
         };
@@ -61,11 +61,13 @@ export default class Tabs extends Component {
 }
 Tabs.defaultProps = {
     onSelect: null,
-    activeLinkStyle: null
+    activeLinkStyle: null,
+    defaultSelectedTab: ''
 };
 Tabs.propTypes = {
     onSelect: PropTypes.func,
-    activeLinkStyle: PropTypes.object
+    activeLinkStyle: PropTypes.object,
+    defaultSelectedTab: PropTypes.string
 };
 Tabs.childContextTypes = {
     onSelect: PropTypes.func,
@@ -90,7 +92,7 @@ export class TabLink extends Base {
     }
 
     componentDidMount() {
-        if (this.context.firstLink === this.props.to || this.props.hasOwnProperty('default')) {
+        if (this.context.selectedTab === this.props.to || this.context.firstLink === this.props.to) {
             this.context.onSelect(this.props.to);
         }
     }
