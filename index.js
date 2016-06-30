@@ -117,13 +117,11 @@ export class TabTitle extends Component {
 }
 TabTitle.defaultProps = {
     label: '',
-    className: 'tab-link',
-    // default: false
+    className: 'tab-link'
 };
 TabTitle.propTypes = {
     label: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    default: PropTypes.bool
+    className: PropTypes.string
 };
 TabTitle.contextTypes = {
     onSelect: PropTypes.func,
@@ -147,13 +145,13 @@ export class TabPanel extends Component {
     }
 
     render() {
-        const displayStyle = this.context.selectedTab === this.props.for ? styles.visible : styles.hidden;
+        let displayStyle = this.context.selectedTab === this.props.for 
+            ? styles.visible : styles.hidden;
 
         return (
             <div
                 className={ this.props.className }
-                style={ displayStyle }
-            >
+                style={ displayStyle }>
                 {this.props.children}
             </div>
         );
