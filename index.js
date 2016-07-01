@@ -8,7 +8,7 @@ export default class Tabs extends Component {
             selectedTab: null
         };
 
-        this.firstLink = null;
+        this.firstTabLabel = null;
     }
 
     getChildContext(){
@@ -16,7 +16,7 @@ export default class Tabs extends Component {
             onSelect: this.onSelect.bind(this),
             selectedTab: this.state.selectedTab || this.props.defaultSelectedTab,
             activeStyle: this.props.activeLinkStyle || defaultActiveStyle,
-            firstLink: this.firstLink
+            firstTabLabel: this.firstTabLabel
         };
     }
 
@@ -32,25 +32,25 @@ export default class Tabs extends Component {
         }
     }
 
-    findFirstLink(children){
-        if (typeof children !== 'object' || this.firstLink) {
+    findfirstTabLabel(children){
+        if (typeof children !== 'object' || this.firstTabLabel) {
             return;
         }
 
         React.Children.forEach(children, (child) => {
             if(child.props && child.props.label) {
-                if(this.firstLink == null){
-                    this.firstLink = child.props.label;
+                if(this.firstTabLabel == null){
+                    this.firstTabLabel = child.props.label;
                     return;
                 }
             }
 
-            this.findFirstLink(child.props && child.props.children);
+            this.findfirstTabLabel(child.props && child.props.children);
         });
     }
 
     render() {
-        this.findFirstLink(this.props.children);
+        this.findfirstTabLabel(this.props.children);
 
         return (
             <div {...this.props}>
@@ -73,7 +73,7 @@ Tabs.childContextTypes = {
     onSelect: PropTypes.func,
     selectedTab: PropTypes.string,
     activeStyle: PropTypes.object,
-    firstLink: PropTypes.string
+    firstTabLabel: PropTypes.string
 };
 
 const defaultActiveStyle = {
@@ -92,7 +92,7 @@ export class TabTitle extends Component {
     }
 
     componentDidMount() {
-        if (this.context.selectedTab === this.props.label || this.context.firstLink === this.props.label) {
+        if (this.context.selectedTab === this.props.label || this.context.firstTabLabel === this.props.label) {
             this.context.onSelect(this.props.label);
         }
     }
@@ -125,7 +125,7 @@ TabTitle.propTypes = {
 };
 TabTitle.contextTypes = {
     onSelect: PropTypes.func,
-    firstLink: PropTypes.string,
+    firstTabLabel: PropTypes.string,
     activeStyle: PropTypes.object,
     selectedTab: PropTypes.string
 };
