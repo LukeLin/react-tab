@@ -30,13 +30,11 @@ if (!DEBUG) {
 
 module.exports = {
     target: 'web',
-    entry: './index.js',
+    entry: './test.js',
     output: {
         path: './dist',
-        filename: DEBUG ? "./react-tab-debug.js" : "./react-tab-min.js",
-        chunkFilename: DEBUG ? "./react-tab-debug.js" : "./react-tab-min.js",
-        libraryTarget: 'umd',
-        library: 'ReactTab'
+        filename: DEBUG ? "./react-tab-test-debug.js" : "./react-tab-test-min.js",
+        chunkFilename: DEBUG ? "./react-tab-test-debug.js" : "./react-tab-test-min.js"
     },
 
     cache: true,

@@ -29,16 +29,16 @@ class App extends Component {
                 <TabPanel for="c">
                     <Tab>
                         <TabTitle label="a">
-                            TabTitle a
+                            sub TabTitle a
                         </TabTitle>
                         <TabTitle label="b">
-                            TabTitle b
+                            sub TabTitle b
                         </TabTitle>
                         <TabPanel for="a">
-                            TabPanel a
+                            sub TabPanel a
                         </TabPanel>
                         <TabPanel for="b">
-                            TabPanel b
+                            sub TabPanel b
                         </TabPanel>
                     </Tab>
                 </TabPanel>

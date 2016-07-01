@@ -142,6 +142,12 @@ const styles = {
 export class TabPanel extends Component {
     constructor(props, context){
         super(props, context);
+
+        for(let style in styles){
+            if(styles.hasOwnProperty(style)){
+                Object.assign(styles[style], this.props.style);
+            }
+        }
     }
 
     render() {
@@ -159,11 +165,13 @@ export class TabPanel extends Component {
 }
 TabPanel.defaultProps = {
     for: '',
-    className: 'tab-content'
+    className: 'tab-content',
+    style: null
 };
 TabPanel.propTypes = {
     for: PropTypes.string.isRequired,
-    className: PropTypes.string
+    className: PropTypes.string,
+    style: PropTypes.object
 };
 TabPanel.contextTypes = {
     selectedTab: PropTypes.string
