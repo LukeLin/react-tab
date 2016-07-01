@@ -8,18 +8,18 @@ import Tab, { TabTitle, TabPanel } from './index';
 
 ```` xml
 <Tabs>
-    <TabLink to="1">
+    <TabTitle to="1">
         tab1
-    </TabLink>
-    <TabLink to="2">
+    </TabTitle>
+    <TabTitle to="2">
         tab2
-    </TabLink>
-    <TabContent for="1">
-        TabContent1
-    </TabContent>
-    <TabContent for="2">
-        TabContent2
-    </TabContent>
+    </TabTitle>
+    <TabPanel for="1">
+        TabPanel1
+    </TabPanel>
+    <TabPanel for="2">
+        TabPanel2
+    </TabPanel>
 </Tabs>
 ```
 
@@ -27,24 +27,24 @@ import Tab, { TabTitle, TabPanel } from './index';
 ``` xml
 <Tabs onSelect={ this.onSelect } activeLinkStyle={ { color: 'red' } } defaultSelectedTab="2">
     <div>
-        <TabLink to="1">
+        <TabTitle to="1">
             tab1
-        </TabLink>
+        </TabTitle>
     </div>
     <div>
-        <TabLink to="2">
+        <TabTitle to="2">
             tab2
-        </TabLink>
+        </TabTitle>
     </div>
     <div>
-        <TabContent for="1">
-            TabContent1
-        </TabContent>
+        <TabPanel for="1">
+            TabPanel1
+        </TabPanel>
     </div>
     <div>
-        <TabContent for="2">
-            TabContent2
-        </TabContent>
+        <TabPanel for="2">
+            TabPanel2
+        </TabPanel>
     </div>
 </Tabs>
 ```
