@@ -84,3 +84,5 @@ import Tab, { TabTitle, TabPanel } from './index';
     </TabPanel>
 </Tab>
 ```
+
+#### [demo](http://htmlpreview.github.io/?https://github.com/LukeLin/react-tab/blob/master/example.html)
