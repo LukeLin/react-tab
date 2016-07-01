@@ -2,6 +2,9 @@
 react tab component
 
 ## Usage
+
+npm install --save react-super-tab
+
 ``` javascript
 import Tab, { TabTitle, TabPanel } from './index';
 ```
