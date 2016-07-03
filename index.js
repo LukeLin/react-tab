@@ -32,7 +32,7 @@ export default class Tabs extends Component {
         }
     }
 
-    findfirstTabLabel(children){
+    findFirstTabLabel(children){
         if (typeof children !== 'object' || this.firstTabLabel) {
             return;
         }
@@ -45,12 +45,12 @@ export default class Tabs extends Component {
                 }
             }
 
-            this.findfirstTabLabel(child.props && child.props.children);
+            this.findFirstTabLabel(child.props && child.props.children);
         });
     }
 
     render() {
-        this.findfirstTabLabel(this.props.children);
+        this.findFirstTabLabel(this.props.children);
 
         return (
             <div {...this.props}>
