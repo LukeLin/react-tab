@@ -53,7 +53,7 @@ export default class Tabs extends Component {
         this.findFirstTabLabel(this.props.children);
 
         return (
-            <div {...this.props}>
+            <div className={ this.props.className } style={ this.props.style }>
                 {this.props.children}
             </div>
         );
@@ -62,12 +62,16 @@ export default class Tabs extends Component {
 Tabs.defaultProps = {
     onSelect: null,
     activeLinkStyle: null,
-    defaultSelectedTab: ''
+    defaultSelectedTab: '',
+    className: '',
+    style: null
 };
 Tabs.propTypes = {
     onSelect: PropTypes.func,
     activeLinkStyle: PropTypes.object,
-    defaultSelectedTab: PropTypes.string
+    defaultSelectedTab: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object
 };
 Tabs.childContextTypes = {
     onSelect: PropTypes.func,
