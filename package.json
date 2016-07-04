@@ -1,6 +1,6 @@
 {
   "name": "react-super-tab",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "react tabs component",
   "main": "lib/index.js",
   "scripts": {
@@ -28,11 +28,11 @@
   "homepage": "https://github.com/LukeLin/react-tab#readme",
   "babel": {
     "plugins": [
-      "transform-es2015-modules-commonjs",
       "transform-runtime"
     ],
     "presets": [
-      "react"
+      "react",
+      "es2015"
     ]
   },
   "devDependencies": {
