@@ -6,7 +6,7 @@ react tab component
 npm install --save react-super-tab
 
 ``` javascript
-import Tab, { TabTitle, TabPanel } from './index';
+import Tab, { TabTitle, TabPanel } from 'react-super-tab';
 ```
 
 ```` xml
