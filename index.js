@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import Base from './utils/Base';
 
-export default class Tabs extends Base {
+export default class Tabs extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -85,7 +84,7 @@ const defaultActiveStyle = {
     fontWeight: 'bold'
 };
 
-export class TabTitle extends Base {
+export class TabTitle extends Component {
     constructor(props, context){
         super(props, context);
 
@@ -144,7 +143,7 @@ const styles = {
     }
 };
 
-export class TabPanel extends Base {
+export class TabPanel extends Component {
     constructor(props, context){
         super(props, context);
 
