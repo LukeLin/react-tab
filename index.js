@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import Base from './utils/Base';
 
-export default class Tabs extends Component {
+export default class Tabs extends Base {
     constructor(props, context) {
         super(props, context);
 
@@ -96,7 +97,8 @@ export class TabTitle extends Component {
     }
 
     componentDidMount() {
-        if (this.context.selectedTab === this.props.label || (!this.context.selectedTab && this.context.firstTabLabel === this.props.label)) {
+        if (this.context.selectedTab === this.props.label ||
+            (!this.context.selectedTab && this.context.firstTabLabel === this.props.label)) {
             this.context.onSelect(this.props.label);
         }
     }
