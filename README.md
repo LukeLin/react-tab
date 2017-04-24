@@ -5,11 +5,11 @@ react tab component
 
 npm install --save react-super-tab
 
-``` javascript
+```javascript
 import Tab, { TabTitle, TabPanel } from 'react-super-tab';
 ```
 
-```` xml
+```xml
 <Tabs>
     <TabTitle to="1">
         tab1
